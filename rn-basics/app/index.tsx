@@ -3,7 +3,7 @@ import GoalList from '@/components/GoalList';
 
 export default function Index() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <GoalList />
     </SafeAreaView>
   );

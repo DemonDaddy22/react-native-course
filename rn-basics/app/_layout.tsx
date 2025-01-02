@@ -7,6 +7,8 @@ export default function RootLayout() {
         name='index'
         options={{
           title: 'Goals',
+          headerStyle: { backgroundColor: '#290210' },
+          headerTitleStyle: { color: '#f6c29a' },
         }}
       />
     </Stack>
