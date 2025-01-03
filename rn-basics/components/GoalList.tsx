@@ -1,13 +1,34 @@
+import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 interface Props {}
 
+interface IGoal {
+  id: number;
+  goal: string;
+}
+
 const GoalList: React.FC<Props> = () => {
+  const [goal, setGoal] = useState<string>('');
+  const [goals, setGoals] = useState<IGoal[]>([]);
+
+  const handleTextChange = (text: string) => {
+    setGoal(text);
+  };
+
+  const handleAddGoal = () => {
+    if (!goal.trim().length) {
+      return;
+    }
+    setGoals(prevGoals => [...prevGoals, { id: Date.now(), goal }]);
+    setGoal('');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder='Enter your goal...' />
-        <Button title='Add Goal' color='#f6c29a' />
+        <TextInput style={styles.input} placeholder='Enter your goal...' onChangeText={handleTextChange} />
+        <Button title='Add Goal' color='#f6c29a' onPress={handleAddGoal} />
       </View>
       <View style={styles.goalsContainer}>
         <Text>List of goals</Text>

@@ -9,6 +9,7 @@ export default function RootLayout() {
           title: 'Goals',
           headerStyle: { backgroundColor: '#290210' },
           headerTitleStyle: { color: '#f6c29a' },
+          statusBarBackgroundColor: '#290210',
         }}
       />
     </Stack>
