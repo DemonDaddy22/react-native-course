@@ -5,11 +5,6 @@ import GoalInput from './GoalInput';
 
 interface Props {}
 
-interface IGoal {
-  id: number;
-  goal: string;
-}
-
 const GoalList: React.FC<Props> = () => {
   const [goals, setGoals] = useState<IGoal[]>([]);
 
@@ -20,8 +15,12 @@ const GoalList: React.FC<Props> = () => {
     setGoals(prevGoals => [...prevGoals, { id: Date.now(), goal }]);
   };
 
+  const handleDeleteGoal = (id: number) => {
+    setGoals(prevGoals => prevGoals.filter(goal => goal.id !== id));
+  };
+
   const renderGoalItem = (itemData: ListRenderItemInfo<IGoal>) => {
-    return <Goal goal={itemData.item.goal} index={itemData.index} />;
+    return <Goal goal={itemData.item} index={itemData.index} onPress={handleDeleteGoal} />;
   };
 
   return (
