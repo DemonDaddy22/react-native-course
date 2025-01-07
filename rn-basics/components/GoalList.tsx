@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, FlatList, ListRenderItemInfo, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import Goal from './Goal';
+import GoalInput from './GoalInput';
 
 interface Props {}
 
@@ -32,8 +33,7 @@ const GoalList: React.FC<Props> = () => {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder='Enter your goal...' onChangeText={handleTextChange} value={goal} />
-        <Button title='Add Goal' color='#f6c29a' onPress={handleAddGoal} />
+        <GoalInput goal={goal} handleTextChange={handleTextChange} handleButtonPress={handleAddGoal} />
       </View>
       <View style={styles.goalsContainer}>
         {goals.length ? (
@@ -58,13 +58,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#290210',
     padding: 16,
-  },
-  input: {
-    borderBottomWidth: 1,
-    borderColor: '#f6c29a',
-    padding: 4,
-    color: '#f6c29a',
-    flex: 1,
   },
   goalsContainer: {
     flex: 6,
