@@ -11,19 +11,13 @@ interface IGoal {
 }
 
 const GoalList: React.FC<Props> = () => {
-  const [goal, setGoal] = useState<string>('');
   const [goals, setGoals] = useState<IGoal[]>([]);
 
-  const handleTextChange = (text: string) => {
-    setGoal(text);
-  };
-
-  const handleAddGoal = () => {
+  const handleAddGoal = (goal: string) => {
     if (!goal.trim().length) {
       return;
     }
     setGoals(prevGoals => [...prevGoals, { id: Date.now(), goal }]);
-    setGoal('');
   };
 
   const renderGoalItem = (itemData: ListRenderItemInfo<IGoal>) => {
@@ -32,9 +26,7 @@ const GoalList: React.FC<Props> = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <GoalInput goal={goal} handleTextChange={handleTextChange} handleButtonPress={handleAddGoal} />
-      </View>
+      <GoalInput handleButtonPress={handleAddGoal} />
       <View style={styles.goalsContainer}>
         {goals.length ? (
           <FlatList data={goals} renderItem={renderGoalItem} keyExtractor={item => String(item.id)} />
@@ -49,15 +41,6 @@ const GoalList: React.FC<Props> = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: 8,
-    flex: 1,
-    backgroundColor: '#290210',
-    padding: 16,
   },
   goalsContainer: {
     flex: 6,
