@@ -1,5 +1,11 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router';
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen name='game-start' />
+      <Stack.Screen name='game' />
+      <Stack.Screen name='game-over' />
+    </Stack>
+  );
 }
