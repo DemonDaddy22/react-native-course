@@ -4,7 +4,7 @@ import { Pressable, PressableProps, Text, View } from 'react-native';
 
 interface IProps extends PressableProps {
   title: string;
-  variant?: TButton;
+  variant?: TVariant;
 }
 
 const Button: React.FC<IProps> = ({ title, variant = 'accent1', onPress }) => {
