@@ -7,5 +7,5 @@ export const COLORS = Object.freeze({
   ACCENT_2: '#F4711E',
   ACCENT_3: '#F8B109',
   GREY_1: '#202020',
-  GREY_2: '#373737',
+  GREY_2: '#303030',
 });

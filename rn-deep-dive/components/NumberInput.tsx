@@ -19,7 +19,14 @@ const NumberInput: React.FC<IProps> = ({ variant = 'accent3', onChangeText }) =>
     }
   }, [variant]);
 
-  return <TextInput keyboardType='numeric' onChangeText={onChangeText} style={[styles.input, inputVariant]} />;
+  return (
+    <TextInput
+      keyboardType='number-pad'
+      maxLength={2}
+      onChangeText={onChangeText}
+      style={[styles.input, inputVariant]}
+    />
+  );
 };
 
 export default NumberInput;

@@ -1,13 +1,13 @@
-import styles from '@/styles/screen';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
+import LinearGradientScreen from '@/components/LinearGradientScreen';
 
 interface IProps {}
 
 const Game: React.FC<IProps> = () => {
   return (
-    <View style={styles.screen}>
+    <LinearGradientScreen>
       <Text>Game</Text>
-    </View>
+    </LinearGradientScreen>
   );
 };
 

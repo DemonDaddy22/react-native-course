@@ -5,6 +5,7 @@ const SCREEN_OPTIONS = {
   title: '',
   headerStyle: { backgroundColor: COLORS.DARK },
   statusBarBackgroundColor: COLORS.DARK,
+  headerShown: false,
 };
 
 export default function RootLayout() {
