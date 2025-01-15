@@ -6,7 +6,7 @@ interface IProps extends TextInputProps {
   variant?: TVariant;
 }
 
-const NumberInput: React.FC<IProps> = ({ variant = 'accent3', onChangeText }) => {
+const NumberInput: React.FC<IProps> = ({ value, variant = 'accent3', onChangeText }) => {
   const inputVariant = useMemo(() => {
     switch (variant) {
       case 'accent1':
@@ -23,6 +23,7 @@ const NumberInput: React.FC<IProps> = ({ variant = 'accent3', onChangeText }) =>
     <TextInput
       keyboardType='number-pad'
       maxLength={2}
+      value={value}
       onChangeText={onChangeText}
       style={[styles.input, inputVariant]}
     />
