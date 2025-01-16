@@ -19,7 +19,6 @@ const styles = StyleSheet.create<IStyles>({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 16,
-    padding: 16,
     backgroundColor: COLORS.DARK,
   },
   footerImages: {

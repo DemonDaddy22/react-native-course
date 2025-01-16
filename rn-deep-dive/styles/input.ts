@@ -19,7 +19,7 @@ const styles = StyleSheet.create<IStyles>({
     borderBlockColor: COLORS.LIGHT,
     borderRadius: 2,
     color: COLORS.LIGHT,
-    width: '100%',
+    width: '90%',
   },
   inputAccent1: {
     borderBlockColor: COLORS.ACCENT_1,

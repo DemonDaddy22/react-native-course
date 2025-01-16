@@ -4,7 +4,7 @@ import { router } from 'expo-router';
 import Button from '@/components/Button';
 import LinearGradientScreen from '@/components/LinearGradientScreen';
 import NumberInput from '@/components/NumberInput';
-import styles from '@/styles/startGame';
+import styles from '@/styles/gameStart';
 
 interface IProps {}
 
@@ -31,7 +31,7 @@ const GameStart: React.FC<IProps> = () => {
       ]);
       return;
     }
-    router.navigate('/game');
+    router.replace('/game');
   };
 
   return (
