@@ -7,7 +7,7 @@ interface IStyles {
 
 const styles = StyleSheet.create<IStyles>({
   title: {
-    fontSize: 40,
+    fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'capitalize',

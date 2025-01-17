@@ -1,6 +1,6 @@
 import { Alert, Text, View } from 'react-native';
-import { useEffect, useState } from 'react';
-import { router } from 'expo-router';
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Button from '@/components/Button';
 import LinearGradientScreen from '@/components/LinearGradientScreen';
 import NumberInput from '@/components/NumberInput';
@@ -9,6 +9,8 @@ import styles from '@/styles/gameStart';
 interface IProps {}
 
 const GameStart: React.FC<IProps> = () => {
+  const navigation = useNavigation<any>();
+
   const [numberEntered, setNumberEntered] = useState('');
 
   const handleNumberChange = (num: string) => {
@@ -31,7 +33,7 @@ const GameStart: React.FC<IProps> = () => {
       ]);
       return;
     }
-    router.replace('/game');
+    navigation.navigate('game', { initialNum: numberEntered });
   };
 
   return (
