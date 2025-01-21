@@ -1,9 +1,9 @@
 import { Alert, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import LinearGradientScreen from '@/components/LinearGradientScreen';
 import Title from '@/components/Title';
-import { useRef, useState } from 'react';
 import { generateRandomNumber } from '@/utils';
-import { useRoute, RouteProp } from '@react-navigation/native';
 import styles from '@/styles/game';
 import Button from '@/components/Button';
 
@@ -11,20 +11,22 @@ interface IProps {}
 
 type RouteParams = {
   params: {
-    initialNum: number;
+    initialNum: string;
   };
 };
 
 const Game: React.FC<IProps> = () => {
+  const navigation = useNavigation<any>();
   const route = useRoute<RouteProp<RouteParams, 'params'>>();
   const {
-    params: { initialNum },
+    params: { initialNum: enteredNumber },
   } = route;
 
+  const initialNum = useRef(parseInt(enteredNumber)).current;
   const lowerBound = useRef(1);
   const upperBound = useRef(100);
 
-  const [currentGuess, setCurrentGuess] = useState(
+  const [currentGuess, setCurrentGuess] = useState(() =>
     generateRandomNumber(lowerBound.current, upperBound.current, initialNum)
   );
 
@@ -35,13 +37,19 @@ const Game: React.FC<IProps> = () => {
     }
 
     if (goHigher) {
-      lowerBound.current = currentGuess;
+      lowerBound.current = currentGuess + 1;
     } else {
       upperBound.current = currentGuess;
     }
 
     setCurrentGuess(generateRandomNumber(lowerBound.current, upperBound.current, currentGuess));
   };
+
+  useEffect(() => {
+    if (currentGuess === initialNum) {
+      navigation.navigate('game-over', { guess: currentGuess });
+    }
+  }, [currentGuess, initialNum]);
 
   return (
     <LinearGradientScreen>
@@ -50,8 +58,8 @@ const Game: React.FC<IProps> = () => {
         <Text style={styles.guess}>{currentGuess}</Text>
       </View>
       <View style={styles.gameButtons}>
-        <Button title='-' onPress={() => handleButtonPress(false)} />
-        <Button title='+' onPress={() => handleButtonPress(true)} />
+        <Button title='-' textStyle={styles.buttonText} onPress={() => handleButtonPress(false)} />
+        <Button title='+' textStyle={styles.buttonText} onPress={() => handleButtonPress(true)} />
       </View>
     </LinearGradientScreen>
   );
