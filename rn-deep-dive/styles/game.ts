@@ -4,6 +4,7 @@ import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 interface IStyles {
   guessContainer: ViewStyle;
   guess: TextStyle;
+  gameButtons: ViewStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -20,6 +21,11 @@ const styles = StyleSheet.create<IStyles>({
     color: COLORS.ACCENT_3,
     fontSize: 80,
     fontWeight: 'bold',
+  },
+  gameButtons: {
+    flexDirection: 'row',
+    gap: 8,
+    margin: 8,
   },
 });
 
