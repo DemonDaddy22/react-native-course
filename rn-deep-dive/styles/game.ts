@@ -6,6 +6,7 @@ interface IStyles {
   guess: TextStyle;
   gameButtons: ViewStyle;
   buttonText: TextStyle;
+  header: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -26,12 +27,18 @@ const styles = StyleSheet.create<IStyles>({
   gameButtons: {
     flexDirection: 'row',
     gap: 8,
-    margin: 16,
   },
   buttonText: {
     fontSize: 24,
     lineHeight: 32,
     fontWeight: 'bold',
+  },
+  header: {
+    color: COLORS.LIGHT,
+    fontSize: 16,
+    lineHeight: 20,
+    textAlign: 'center',
+    marginTop: 16,
   },
 });
 

@@ -1,12 +1,11 @@
 import { COLORS } from '@/constants/Colors';
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 
 interface IStyles {
   button: ViewStyle;
   buttonAccent1: ViewStyle;
   buttonAccent2: ViewStyle;
   buttonAccent3: ViewStyle;
-  text: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -36,12 +35,6 @@ const styles = StyleSheet.create<IStyles>({
   },
   buttonAccent3: {
     backgroundColor: COLORS.ACCENT_3,
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '500',
-    color: COLORS.DARK,
   },
 });
 

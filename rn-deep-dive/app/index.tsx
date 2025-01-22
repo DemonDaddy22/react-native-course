@@ -41,8 +41,12 @@ const GameStart: React.FC<IProps> = () => {
       <Text style={styles.heading}>Enter a number between 1 and 99</Text>
       <NumberInput value={numberEntered} variant='accent2' onChangeText={handleNumberChange} />
       <View style={styles.buttonsContainer}>
-        <Button title='Confirm' onPress={handleConfirm} variant='accent1' />
-        <Button title='Reset' onPress={handleResetNumber} variant='accent3' />
+        <Button onPress={handleConfirm} variant='accent1'>
+          <Text style={styles.buttonText}>Confirm</Text>
+        </Button>
+        <Button onPress={handleResetNumber} variant='accent3'>
+          <Text style={styles.buttonText}>Reset</Text>
+        </Button>
       </View>
     </LinearGradientScreen>
   );

@@ -6,6 +6,8 @@ import Title from '@/components/Title';
 import { generateRandomNumber } from '@/utils';
 import styles from '@/styles/game';
 import Button from '@/components/Button';
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '@/constants/Colors';
 
 interface IProps {}
 
@@ -57,9 +59,14 @@ const Game: React.FC<IProps> = () => {
       <View style={styles.guessContainer}>
         <Text style={styles.guess}>{currentGuess}</Text>
       </View>
+      <Text style={styles.header}>Guess higher or lower?</Text>
       <View style={styles.gameButtons}>
-        <Button title='-' textStyle={styles.buttonText} onPress={() => handleButtonPress(false)} />
-        <Button title='+' textStyle={styles.buttonText} onPress={() => handleButtonPress(true)} />
+        <Button onPress={() => handleButtonPress(false)}>
+          <Ionicons name='arrow-down-outline' size={24} color={COLORS.DARK} />
+        </Button>
+        <Button onPress={() => handleButtonPress(true)}>
+          <Ionicons name='arrow-up-outline' size={24} color={COLORS.DARK} />
+        </Button>
       </View>
     </LinearGradientScreen>
   );
