@@ -4,6 +4,7 @@ import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 interface IStyles {
   heading: TextStyle;
   title: TextStyle;
+  buttonText: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -13,8 +14,14 @@ const styles = StyleSheet.create<IStyles>({
     textAlign: 'center',
   },
   title: {
-    fontSize: 80,
+    fontSize: 100,
     fontWeight: 'bold',
+    marginBottom: 40,
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '500',
   },
 });
 
