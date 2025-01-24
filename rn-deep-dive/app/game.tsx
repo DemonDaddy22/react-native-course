@@ -31,6 +31,7 @@ const Game: React.FC<IProps> = () => {
   const [currentGuess, setCurrentGuess] = useState(() =>
     generateRandomNumber(lowerBound.current, upperBound.current, initialNum)
   );
+  const [turns, setTurns] = useState(0);
 
   const handleButtonPress = (goHigher: boolean) => {
     if ((goHigher && currentGuess > initialNum) || (!goHigher && currentGuess < initialNum)) {
@@ -44,14 +45,15 @@ const Game: React.FC<IProps> = () => {
       upperBound.current = currentGuess;
     }
 
+    setTurns(prevTurns => prevTurns + 1);
     setCurrentGuess(generateRandomNumber(lowerBound.current, upperBound.current, currentGuess));
   };
 
   useEffect(() => {
     if (currentGuess === initialNum) {
-      navigation.navigate('game-over', { guess: currentGuess });
+      navigation.navigate('game-over', { guess: currentGuess, turns });
     }
-  }, [currentGuess, initialNum]);
+  }, [currentGuess, initialNum, turns]);
 
   return (
     <LinearGradientScreen>

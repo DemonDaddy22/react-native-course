@@ -5,12 +5,13 @@ interface IStyles {
   heading: TextStyle;
   title: TextStyle;
   buttonText: TextStyle;
+  highlight: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
   heading: {
     color: COLORS.LIGHT,
-    fontSize: 16,
+    fontSize: 20,
     textAlign: 'center',
   },
   title: {
@@ -22,6 +23,10 @@ const styles = StyleSheet.create<IStyles>({
     fontSize: 16,
     lineHeight: 20,
     fontWeight: '500',
+  },
+  highlight: {
+    color: COLORS.ACCENT_3,
+    fontWeight: 'bold',
   },
 });
 

@@ -10,13 +10,14 @@ interface IProps {}
 type RouteParams = {
   params: {
     guess: string;
+    turns: string;
   };
 };
 
 const GameOver: React.FC<IProps> = () => {
   const route = useRoute<RouteProp<RouteParams, 'params'>>();
   const {
-    params: { guess },
+    params: { guess, turns },
   } = route;
   const navigation = useNavigation<any>();
 
@@ -26,7 +27,9 @@ const GameOver: React.FC<IProps> = () => {
 
   return (
     <LinearGradientScreen>
-      <Text style={styles.heading}>You won! The number was</Text>
+      <Text style={styles.heading}>
+        You took <Text style={styles.highlight}>{turns}</Text> turns to guess
+      </Text>
       <Title style={styles.title}>{guess}</Title>
       <Button onPress={handleGameRestart}>
         <Text style={styles.buttonText}>Restart</Text>
