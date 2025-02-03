@@ -1,4 +1,3 @@
-import { COLORS } from '@/constants/colors';
 import { Stack } from 'expo-router';
 
 const SCREEN_OPTIONS = {
@@ -11,6 +10,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name='index' options={SCREEN_OPTIONS} />
       <Stack.Screen name='categories' options={SCREEN_OPTIONS} />
+      <Stack.Screen name='category/[category]/index' options={SCREEN_OPTIONS} />
     </Stack>
   );
 }

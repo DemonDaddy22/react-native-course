@@ -20,6 +20,7 @@ const CategoryList: React.FC<IProps> = () => {
         renderItem={renderCategory}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
+        numColumns={2}
       />
     </View>
   );
