@@ -4,5 +4,5 @@ export const COLORS = Object.freeze({
   WHITE: '#FFFFFF',
   LIGHT: '#F7F7F7',
   GREY_1: '#202020',
-  GREY_2: '#CFCFCF',
+  GREY_2: '#5F5F5F',
 });

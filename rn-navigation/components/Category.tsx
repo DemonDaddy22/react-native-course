@@ -3,15 +3,16 @@ import { RelativePathString, useRouter } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 
 interface IProps {
+  id: string;
   title: string;
   color: string;
 }
 
-const Category: React.FC<IProps> = ({ title, color }) => {
+const Category: React.FC<IProps> = ({ id, title, color }) => {
   const router = useRouter();
 
   const handleCategoryItemPress = () => {
-    router.push(`/category/${title}` as RelativePathString);
+    router.push(`/category/${id}` as RelativePathString);
   };
 
   return (

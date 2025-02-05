@@ -3,13 +3,13 @@ import { CATEGORIES } from '@/data/data';
 import { useCallback } from 'react';
 import Category from './Category';
 import CategoryType from '@/models/category';
-import styles from '@/styles/categoryList';
+import styles from '@/styles/list';
 
 interface IProps {}
 
 const CategoryList: React.FC<IProps> = () => {
   const renderCategory = useCallback(({ item }: { item: CategoryType }) => {
-    return <Category title={item.title} color={item.color} />;
+    return <Category id={item.id} title={item.title} color={item.color} />;
   }, []);
 
   return (

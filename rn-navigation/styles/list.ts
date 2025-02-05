@@ -7,12 +7,12 @@ interface IStyles {
 
 const styles = StyleSheet.create<IStyles>({
   container: {
-    paddingVertical: 4,
-    paddingHorizontal: 32,
+    flex: 1,
     alignSelf: 'stretch',
   },
   list: {
     gap: 16,
+    padding: 16,
   },
 });
 
