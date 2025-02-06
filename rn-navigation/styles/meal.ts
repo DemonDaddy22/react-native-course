@@ -2,6 +2,7 @@ import { COLORS } from '@/constants/colors';
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
 interface IStyles {
+  cardPressed: ViewStyle;
   box: ViewStyle;
   card: ViewStyle;
   title: TextStyle;
@@ -12,6 +13,13 @@ interface IStyles {
 }
 
 const styles = StyleSheet.create<IStyles>({
+  cardPressed: {
+    transform: [
+      {
+        scale: 0.99,
+      },
+    ],
+  },
   box: {
     flex: 1,
     backgroundColor: COLORS.LIGHT,
