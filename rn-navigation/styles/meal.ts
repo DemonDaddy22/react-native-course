@@ -7,9 +7,6 @@ interface IStyles {
   card: ViewStyle;
   title: TextStyle;
   image: ImageStyle;
-  content: ViewStyle;
-  contentGroup: ViewStyle;
-  contentText: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -50,25 +47,6 @@ const styles = StyleSheet.create<IStyles>({
   image: {
     width: '100%',
     aspectRatio: 3 / 2,
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    padding: 8,
-  },
-  contentGroup: {
-    flexDirection: 'row',
-    gap: 4,
-    alignItems: 'center',
-  },
-  contentText: {
-    fontSize: 10,
-    lineHeight: 14,
-    fontWeight: '500',
-    textTransform: 'uppercase',
-    color: COLORS.GREY_2,
   },
 });
 
