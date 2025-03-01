@@ -2,6 +2,7 @@ import MealList from '@/components/MealList';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import { MEALS } from '@/data/data';
 import { FavouritesContext } from '@/store/context/FavouritesContext';
+import styles from '@/styles/favourites';
 import { useContext, useMemo } from 'react';
 import { Text } from 'react-native';
 
@@ -18,7 +19,11 @@ const Favourites: React.FC<IProps> = () => {
 
   return (
     <ScreenWrapper>
-      <MealList meals={filteredMeals} />
+      {!filteredMeals.length ? (
+        <Text style={styles.placeholder}>Your favourite meals will appear here 😋</Text>
+      ) : (
+        <MealList meals={filteredMeals} />
+      )}
     </ScreenWrapper>
   );
 };
