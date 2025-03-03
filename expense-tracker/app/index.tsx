@@ -1,15 +1,24 @@
-import { Text, View } from "react-native";
+import { useEffect } from 'react';
+import { useRootNavigationState, useRouter } from 'expo-router';
+import { ActivityIndicator, View } from 'react-native';
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
+  const router = useRouter();
+  const navigationState = useRootNavigationState();
+
+  useEffect(() => {
+    if (navigationState?.key) {
+      router.replace('/(tabs)/home');
+    }
+  }, [navigationState?.key]);
+
+  if (!navigationState?.key) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size='large' />
+      </View>
+    );
+  }
+
+  return null;
 }
