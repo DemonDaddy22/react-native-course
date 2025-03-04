@@ -4,11 +4,14 @@ export const COLORS = {
   ACCENT_3: '#101F26',
   ACCENT_4: '#598A8F',
   ACCENT_5: '#F4E25A',
+  ACCENT_3_1: '#081014',
+  ACCENT_3_2: '#01141C',
 
   DARK_1: '#0F0F0F',
 
   LIGHT_1: '#FEFEFE',
   LIGHT_2: '#F0F0F0',
+  LIGHT_3: '#C7C7C7',
 
   BLACK: '#000000',
   WHITE: '#FFFFFF',

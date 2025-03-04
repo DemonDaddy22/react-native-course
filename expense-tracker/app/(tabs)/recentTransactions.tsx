@@ -1,9 +1,14 @@
+import Screen from '@/components/Screen';
 import { Text } from 'react-native';
 
 interface IProps {}
 
 const RecentTransactions: React.FC<IProps> = () => {
-  return <Text>Recent Transactions</Text>;
+  return (
+    <Screen>
+      <Text>Recent Transactions</Text>
+    </Screen>
+  );
 };
 
 export default RecentTransactions;

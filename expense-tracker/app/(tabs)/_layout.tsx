@@ -6,10 +6,9 @@ const TabLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: COLORS.ACCENT_1,
         headerStyle: { backgroundColor: COLORS.ACCENT_3 },
         headerTintColor: COLORS.LIGHT_1,
-        tabBarStyle: { backgroundColor: COLORS.ACCENT_3 },
+        tabBarStyle: { backgroundColor: COLORS.ACCENT_3_1 },
         tabBarShowLabel: false,
       }}
     >
@@ -17,21 +16,27 @@ const TabLayout = () => {
         name='home'
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <FontAwesome size={24} name='home' color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome size={24} name='home' color={focused ? COLORS.ACCENT_1 : COLORS.LIGHT_3} />
+          ),
         }}
       />
       <Tabs.Screen
         name='allTransactions'
         options={{
           title: 'All Transactions',
-          tabBarIcon: ({ color }) => <FontAwesome size={22} name='list' color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome size={22} name='list' color={focused ? COLORS.ACCENT_2 : COLORS.LIGHT_3} />
+          ),
         }}
       />
       <Tabs.Screen
         name='recentTransactions'
         options={{
           title: 'Recent Transactions',
-          tabBarIcon: ({ color }) => <FontAwesome size={20} name='hourglass' color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome size={20} name='hourglass' color={focused ? COLORS.ACCENT_5 : COLORS.LIGHT_3} />
+          ),
         }}
       />
     </Tabs>
