@@ -1,12 +1,13 @@
+import ExpensesList from '@/components/ExpensesList';
 import Screen from '@/components/Screen';
-import { Text } from 'react-native';
+import { ALL_TRANSACTIONS } from '@/data/dummy';
 
 interface IProps {}
 
 const RecentTransactions: React.FC<IProps> = () => {
   return (
     <Screen>
-      <Text>Recent Transactions</Text>
+      <ExpensesList expenses={ALL_TRANSACTIONS.slice(0, 4)} />
     </Screen>
   );
 };
