@@ -1,3 +1,4 @@
+import IconButton from '@/components/UI/IconButton';
 import { COLORS } from '@/constants/colors';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
@@ -5,12 +6,13 @@ import { Tabs } from 'expo-router';
 const TabLayout = () => {
   return (
     <Tabs
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerStyle: { backgroundColor: COLORS.ACCENT_3 },
         headerTintColor: COLORS.LIGHT_1,
         tabBarStyle: { backgroundColor: COLORS.ACCENT_3_1 },
         tabBarShowLabel: false,
-      }}
+        headerRight: ({ tintColor }) => <IconButton icon='add' color={tintColor} onPress={() => {}} />,
+      })}
     >
       <Tabs.Screen
         name='home'

@@ -7,7 +7,14 @@ interface IProps {
 }
 
 const ExpensesList: React.FC<IProps> = ({ expenses }) => {
-  return <FlatList style={styles.list} data={expenses} renderItem={itemData => <ExpenseItem data={itemData.item} />} />;
+  return (
+    <FlatList
+      style={styles.list}
+      data={expenses}
+      keyExtractor={item => String(item.id)}
+      renderItem={itemData => <ExpenseItem data={itemData.item} />}
+    />
+  );
 };
 
 export default ExpensesList;
