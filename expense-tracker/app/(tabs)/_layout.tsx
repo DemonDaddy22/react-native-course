@@ -11,7 +11,10 @@ const TabLayout = () => {
         headerTintColor: COLORS.LIGHT_1,
         tabBarStyle: { backgroundColor: COLORS.ACCENT_3_1 },
         tabBarShowLabel: false,
-        headerRight: ({ tintColor }) => <IconButton icon='add' color={tintColor} onPress={() => {}} />,
+        headerRight: ({ tintColor }) => (
+          <IconButton icon='add' color={tintColor} size={20} onPress={() => navigation.navigate('manageTransaction')} />
+        ),
+        headerRightContainerStyle: { paddingRight: 12 },
       })}
     >
       <Tabs.Screen

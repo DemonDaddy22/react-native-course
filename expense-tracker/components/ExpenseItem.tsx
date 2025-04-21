@@ -1,4 +1,5 @@
 import styles from '@/styles/expenseItem';
+import { useRouter } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 interface IProps {
@@ -6,7 +7,14 @@ interface IProps {
 }
 
 const ExpenseItem: React.FC<IProps> = ({ data }) => {
-  const handleItemPress = () => {};
+  const router = useRouter();
+
+  const handleItemPress = () => {
+    router.push({
+      pathname: '/manageTransaction',
+      params: { id: data.id },
+    });
+  };
 
   return (
     <TouchableOpacity onPress={handleItemPress}>
