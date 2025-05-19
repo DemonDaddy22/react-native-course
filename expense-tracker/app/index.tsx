@@ -1,24 +1,21 @@
 import { useEffect } from 'react';
-import { useRootNavigationState, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { ActivityIndicator, View } from 'react-native';
 
 export default function Index() {
   const router = useRouter();
-  const navigationState = useRootNavigationState();
 
   useEffect(() => {
-    if (navigationState?.key) {
+    const timeout = setTimeout(() => {
       router.replace('/(tabs)/home');
-    }
-  }, [navigationState?.key]);
+    }, 0);
 
-  if (!navigationState?.key) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size='large' />
-      </View>
-    );
-  }
+    return () => clearTimeout(timeout);
+  }, []);
 
-  return null;
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size='large' />
+    </View>
+  );
 }
