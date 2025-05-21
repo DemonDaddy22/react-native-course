@@ -1,6 +1,6 @@
 export const COLORS = {
-  ACCENT_1: '#3CD070',
-  ACCENT_2: '#11EEEE',
+  ACCENT_1: '#66FF22',
+  ACCENT_2: '#00DDCC',
   ACCENT_3: '#101F26',
   ACCENT_4: '#598A8F',
   ACCENT_5: '#F4E25A',

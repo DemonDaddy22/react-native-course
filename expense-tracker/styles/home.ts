@@ -17,6 +17,8 @@ const styles = StyleSheet.create<IStyles>({
     fontSize: 40,
     fontWeight: '700',
     color: COLORS.ACCENT_5,
+    paddingTop: 4,
+    paddingBlock: 16,
   },
 });
 

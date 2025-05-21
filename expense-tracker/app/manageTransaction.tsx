@@ -1,4 +1,5 @@
 import Screen from '@/components/Screen';
+import Button from '@/components/UI/Button';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useLayoutEffect } from 'react';
 import { View } from 'react-native';
@@ -20,6 +21,7 @@ const ManageTransaction: React.FC<IProps> = () => {
   return (
     <Screen>
       <View />
+      <Button title='Manage' onPress={() => {}} />
     </Screen>
   );
 };
