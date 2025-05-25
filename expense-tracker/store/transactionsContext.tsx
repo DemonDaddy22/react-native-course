@@ -3,8 +3,8 @@ import React from 'react';
 
 interface IContext {
   transactions: IExpense[];
-  addTransaction: (transaction: IExpense) => void;
-  updateTransaction: (id: number, transaction: IExpense) => void;
+  addTransaction: (transaction: Partial<IExpense>) => void;
+  updateTransaction: (id: number, transaction: Partial<IExpense>) => void;
   deleteTransaction: (id: number) => void;
 }
 
