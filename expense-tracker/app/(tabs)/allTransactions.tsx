@@ -1,13 +1,16 @@
 import Screen from '@/components/Screen';
 import ExpensesList from '@/components/ExpensesList';
-import { ALL_TRANSACTIONS } from '@/data/dummy';
+import { useContext } from 'react';
+import { TransactionsContext } from '@/store/transactionsContext';
 
 interface IProps {}
 
 const AllTransactions: React.FC<IProps> = () => {
+  const { transactions } = useContext(TransactionsContext);
+
   return (
     <Screen>
-      <ExpensesList expenses={ALL_TRANSACTIONS} />
+      <ExpensesList expenses={transactions} />
     </Screen>
   );
 };
