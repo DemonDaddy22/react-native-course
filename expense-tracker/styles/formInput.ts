@@ -11,6 +11,7 @@ const styles = StyleSheet.create<IStyles>({
   inputContainer: {
     gap: 6,
     marginVertical: 8,
+    flex: 1,
   },
   label: {
     fontSize: 12,
