@@ -6,11 +6,16 @@ interface IStyles {
   buttonPrimary: ViewStyle;
   buttonSecondary: ViewStyle;
   buttonTertiary: ViewStyle;
+  buttonOutlinePrimary: ViewStyle;
+  buttonOutlineSecondary: ViewStyle;
+  buttonOutlineTertiary: ViewStyle;
+  buttonOutlineRed: ViewStyle;
   title: TextStyle;
   titlePrimary: TextStyle;
   titleSecondary: TextStyle;
   titleTertiary: TextStyle;
   titleBlack: TextStyle;
+  titleRed: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -28,9 +33,26 @@ const styles = StyleSheet.create<IStyles>({
   buttonTertiary: {
     backgroundColor: COLORS.ACCENT_5,
   },
+  buttonOutlinePrimary: {
+    borderColor: COLORS.ACCENT_1,
+    borderWidth: 1,
+  },
+  buttonOutlineSecondary: {
+    borderColor: COLORS.ACCENT_2,
+    borderWidth: 1,
+  },
+  buttonOutlineTertiary: {
+    borderColor: COLORS.ACCENT_5,
+    borderWidth: 1,
+  },
+  buttonOutlineRed: {
+    borderColor: COLORS.ACCENT_6,
+    borderWidth: 1,
+  },
   title: {
     fontSize: 16,
     fontWeight: '700',
+    textAlign: 'center',
     color: COLORS.WHITE,
   },
   titlePrimary: {
@@ -44,6 +66,9 @@ const styles = StyleSheet.create<IStyles>({
   },
   titleBlack: {
     color: COLORS.BLACK,
+  },
+  titleRed: {
+    color: COLORS.ACCENT_6,
   },
 });
 

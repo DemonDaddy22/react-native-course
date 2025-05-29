@@ -4,6 +4,7 @@ export const COLORS = {
   ACCENT_3: '#101F26',
   ACCENT_4: '#598A8F',
   ACCENT_5: '#F4E25A',
+  ACCENT_6: '#E81320',
   ACCENT_3_1: '#081014',
   ACCENT_3_2: '#01141C',
   ACCENT_4_1: '#1B3133',
