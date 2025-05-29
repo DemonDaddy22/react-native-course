@@ -1,10 +1,8 @@
 import ExpenseForm from '@/components/ExpenseForm';
 import Screen from '@/components/Screen';
-import Button from '@/components/UI/Button';
 import { TransactionsContext } from '@/store/transactionsContext';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useContext, useLayoutEffect } from 'react';
-import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 interface IProps {}
@@ -39,10 +37,6 @@ const ManageTransaction: React.FC<IProps> = () => {
     <Screen>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <ExpenseForm />
-        <View style={{ flexDirection: 'row', gap: 8 }}>
-          <Button title='Add' onPress={handleAddTransaction} />
-          <Button title='Delete' onPress={handleDeleteTransaction} />
-        </View>
       </GestureHandlerRootView>
     </Screen>
   );
