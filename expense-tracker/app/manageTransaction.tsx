@@ -12,7 +12,9 @@ const ManageTransaction: React.FC<IProps> = () => {
   const { id } = useLocalSearchParams() ?? {};
   const isNewExpense = !id;
 
-  const { addTransaction, deleteTransaction } = useContext(TransactionsContext);
+  const { addTransaction, updateTransaction, deleteTransaction, transactions } = useContext(TransactionsContext);
+
+  const expenseItem = transactions.find(item => item.id === Number(id));
 
   useLayoutEffect(() => {
     const title = isNewExpense ? 'Add Expense' : 'Edit Expense';
@@ -21,22 +23,28 @@ const ManageTransaction: React.FC<IProps> = () => {
     });
   }, [navigation]);
 
-  const handleAddTransaction = () => {
-    addTransaction({ title: 'Update modal', date: new Date(), amount: 10 });
-    navigation.goBack();
+  const handleUpdateTransaction = (data: Partial<IExpense>) => {
+    if (isNewExpense) {
+      addTransaction(data);
+    } else {
+      updateTransaction(Number(id), data);
+    }
   };
-
-  const handleUpdateTransaction = () => {};
 
   const handleDeleteTransaction = () => {
     deleteTransaction(Number(id));
-    navigation.goBack();
   };
 
   return (
     <Screen>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <ExpenseForm />
+        <ExpenseForm
+          isNewExpense={isNewExpense}
+          expenseData={expenseItem}
+          onCancel={navigation.goBack}
+          onSubmit={handleUpdateTransaction}
+          onDelete={handleDeleteTransaction}
+        />
       </GestureHandlerRootView>
     </Screen>
   );

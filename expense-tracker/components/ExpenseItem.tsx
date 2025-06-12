@@ -1,4 +1,5 @@
 import styles from '@/styles/expenseItem';
+import { getLocalFormattedDate } from '@/utils';
 import { useRouter } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
 
@@ -22,7 +23,7 @@ const ExpenseItem: React.FC<IProps> = ({ data }) => {
         <View style={styles.content}>
           <View style={styles.meta}>
             <Text style={styles.id}>#{data.id}</Text>
-            <Text style={styles.date}>{new Date(data.date).toLocaleDateString()}</Text>
+            <Text style={styles.date}>{getLocalFormattedDate(data.date)}</Text>
           </View>
           <Text style={styles.title}>{data.title}</Text>
         </View>

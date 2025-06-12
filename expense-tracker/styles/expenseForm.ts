@@ -7,6 +7,8 @@ interface IStyles {
   buttonsRow: ViewStyle;
   button: ViewStyle;
   descriptionInput: TextStyle;
+  errorContainer: ViewStyle;
+  error: TextStyle;
 }
 
 const styles = StyleSheet.create<IStyles>({
@@ -30,6 +32,13 @@ const styles = StyleSheet.create<IStyles>({
   },
   descriptionInput: {
     minHeight: 120,
+  },
+  errorContainer: {
+    marginVertical: -8,
+  },
+  error: {
+    color: COLORS.ACCENT_6,
+    fontSize: 12,
   },
 });
 
