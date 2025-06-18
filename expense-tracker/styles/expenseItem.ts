@@ -51,11 +51,11 @@ const styles = StyleSheet.create<IStyles>({
     backgroundColor: COLORS.ACCENT_4_2,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 80,
+    width: 100,
   },
   amount: {
     color: COLORS.LIGHT_1,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: '600',
   },
 });

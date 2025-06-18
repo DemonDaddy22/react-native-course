@@ -2,6 +2,7 @@ import { COLORS } from '@/constants/colors';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
 interface IStyles {
+  container: ViewStyle;
   formContainer: ViewStyle;
   formRow: ViewStyle;
   buttonsRow: ViewStyle;
@@ -12,6 +13,9 @@ interface IStyles {
 }
 
 const styles = StyleSheet.create<IStyles>({
+  container: {
+    flex: 1,
+  },
   formContainer: {
     padding: 16,
     gap: 16,

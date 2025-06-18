@@ -1,12 +1,9 @@
 import styles from '@/styles/expenseForm';
-import React, { useMemo } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { Text, View, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import FormInput from './UI/FormInput';
 import Button, { ButtonOutline } from './UI/Button';
 import { getLocalFormattedDate } from '@/utils';
-
-// TODO - handle form actions and validations
-// TODO - add keyboard dismissal wrapper
 
 type TFormAction =
   | 'SET_AMOUNT'
@@ -82,8 +79,8 @@ export const ExpenseForm: React.FC<IProps> = ({ isNewExpense, expenseData, onSub
       dispatch({ type: 'SET_AMOUNT_ERROR', payload: { value: 'Amount must be greater than 0' } });
       return false;
     }
-    if (!formState.date.value.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
-      dispatch({ type: 'SET_DATE_ERROR', payload: { value: 'Invalid date format (MM/DD/YYYY)' } });
+    if (!formState.date.value.match(/^\d{4}\-\d{2}\-\d{2}$/)) {
+      dispatch({ type: 'SET_DATE_ERROR', payload: { value: 'Invalid date format (YYYY-MM-DD)' } });
       return false;
     }
     if (formState.description.value.trim().length === 0) {
@@ -124,42 +121,50 @@ export const ExpenseForm: React.FC<IProps> = ({ isNewExpense, expenseData, onSub
   };
 
   return (
-    <View style={styles.formContainer}>
-      <View style={styles.formRow}>
-        <FormInput
-          label='Amount (₹)'
-          value={formState.amount.value}
-          keyboardType='decimal-pad'
-          onChangeText={handleInputChange('SET_AMOUNT')}
-        />
-        <FormInput
-          label='Date'
-          value={formState.date.value}
-          maxLength={10}
-          placeholder='DD/MM/YYYY'
-          onChangeText={handleInputChange('SET_DATE')}
-        />
-      </View>
-      <View style={styles.formRow}>
-        <FormInput
-          label='Description'
-          multiline
-          value={formState.description.value}
-          inputStyle={styles.descriptionInput}
-          onChangeText={handleInputChange('SET_DESCRIPTION')}
-        />
-      </View>
-      {renderError()}
-      <View style={[styles.formRow, styles.buttonsRow]}>
-        <Button title='Add' style={styles.button} onPress={handleFormSubmit} />
-        <Button title='Cancel' type='secondary' style={styles.button} onPress={onCancel} />
-      </View>
-      {!isNewExpense ? (
-        <View style={styles.formRow}>
-          <ButtonOutline title='Delete' style={styles.button} type='red' onPress={handleExpenseDelete} />
+    <KeyboardAvoidingView
+      style={styles.container}
+      keyboardVerticalOffset={120}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.formContainer}>
+          <View style={styles.formRow}>
+            <FormInput
+              label='Amount (₹)'
+              value={formState.amount.value}
+              keyboardType='decimal-pad'
+              onChangeText={handleInputChange('SET_AMOUNT')}
+            />
+            <FormInput
+              label='Date'
+              value={formState.date.value}
+              maxLength={10}
+              placeholder='YYYY-MM-DD'
+              onChangeText={handleInputChange('SET_DATE')}
+            />
+          </View>
+          <View style={styles.formRow}>
+            <FormInput
+              label='Description'
+              multiline
+              value={formState.description.value}
+              inputStyle={styles.descriptionInput}
+              onChangeText={handleInputChange('SET_DESCRIPTION')}
+            />
+          </View>
+          {renderError()}
+          <View style={[styles.formRow, styles.buttonsRow]}>
+            <Button title={isNewExpense ? 'Add' : 'Update'} style={styles.button} onPress={handleFormSubmit} />
+            <Button title='Cancel' type='secondary' style={styles.button} onPress={onCancel} />
+          </View>
+          {!isNewExpense ? (
+            <View style={styles.formRow}>
+              <ButtonOutline title='Delete' style={styles.button} type='red' onPress={handleExpenseDelete} />
+            </View>
+          ) : null}
         </View>
-      ) : null}
-    </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
